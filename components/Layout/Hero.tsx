@@ -26,6 +26,7 @@ const Hero = () => {
                     containerStyles="bg-primary-blue text-white rounded-full mt-10 border-2 border-white hover:border-2 hover:text-primary-blue hover:border-primary-blue hover:bg-white"
                     handleClick={handleScroll}
                 />
+            </div>
 
                 {/* Hero Image */}
                 <div className="hero__image-container">
@@ -35,14 +36,13 @@ const Hero = () => {
                             alt="Hero-Car-Image"
                             fill className="object-contain"
                         />
+                    </div>
 
                         {/* Blue Background */}
-                        <div className="hero__image-overlay" />
+                    <div className="hero__image-overlay" />
 
-                    </div>
                 </div>
 
-            </div>
         </section>
     );
 };
