@@ -16,7 +16,7 @@ const SearchManufacturer = (props: SearchManufacturerProps) => {
     setQuery(event.target.value);
   };
 
-  // display manufacurers names in the combobex based on the query or inpu typed by the user
+  // display manufacurers names in the combobox based on the query or input typed by the user
   // returns manufacturers starting from the alphabets typed by the user
   const filteredManufacturers =
     query === ""
