@@ -8,7 +8,10 @@ const SearchBar = () => {
   const [manufacturer, setManufacturer] = useState("");
 
 
-  const handleSearch = () => {};
+  const handleSearch = () => {
+    console.log();
+    
+  };
 
   return (
     <form className="searchbar" onSubmit={handleSearch} >
