@@ -14,8 +14,17 @@ export default function CustomButton(props: CustomButtonProps) {
       onClick={props.handleClick}
     >
 
-      <span className={`flex-1 `}>{props.title}</span>
-
+      <span className={`flex-1 ${props.textStyles} `}>{props.title}</span>
+      {props.rightIcon && (
+        <div className="relative w-6 h-6">
+          <Image 
+            src={props.rightIcon}
+            alt="right icon"
+            fill
+            className="object-contain"
+          />
+        </div>
+      )}
     </button>
   );
 }
