@@ -21,7 +21,7 @@ const CarDetailsModal = (props: CarDetailsModalProps) => {
           <Backdrop />
 
           {/* Info Modal*/}
-          <CarInfo closeModal={props.closeModal} />
+          <CarInfo closeModal={props.closeModal} car={props.car} />
           
         </Dialog>
       </Transition>
