@@ -4,11 +4,11 @@ import SearchBar from "../components/UI/SearchBar";
 import CustomFilter from "../components/UI/CustomFilter";
 import { fetchCars } from "../library";
 import CarCard from "../components/Car/CarCard";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 
 export default async function Home() {
+  
   const allCars = await fetchCars();
-  // console.log(allCars);
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 

@@ -2,6 +2,7 @@ import { Transition, Dialog } from "@headlessui/react";
 import { Fragment } from "react";
 import Image from "next/image";
 import { CarProps } from "../../types";
+import ModalImage from "./ModalImage";
 
 interface CarInfoProps {
   closeModal: () => void;
@@ -46,7 +47,8 @@ const CarInfo = (props: CarInfoProps) => {
               />
             </button>
 
-           
+            {/* Car Image */}
+            <ModalImage />
 
             {/* Car Description */}
             <div className="flex-1 flex flex-col gap-2">
