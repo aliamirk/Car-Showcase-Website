@@ -5,15 +5,23 @@ import { CarProps } from "../../types";
 
 interface CarInfoProps {
   closeModal: () => void;
-  car: CarProps
+  car: CarProps;
 }
 
 const CarInfo = (props: CarInfoProps) => {
+
+  {/* Extracting keys and values of the car object */}
+  const CarDescription = Object.entries(props.car).map(([key, value]) => (
+    <div className="flex justify-between gap-5 w-full text-right" key={key.split("_").join(" ")}>
+      <h4 className="text-grey capitalize">{key}</h4>
+      <p className="text-black-100 font-semibold">{value}</p>
+    </div>
+  ));
+
   return (
 
     <div className="fixed inset-0 overflow-y-auto ">
       <div className="flex min-h-full items-center justify-center p-4 text-center">
-
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -23,8 +31,7 @@ const CarInfo = (props: CarInfoProps) => {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <Dialog.Panel className=" relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white text-left shadow-xsl transition-all flex flex-col gap-5 ">
-
+          <Dialog.Panel className=" relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl p-6 bg-white text-left shadow-xl transition-all flex flex-col gap-5 ">
             <button // Cross Icon
               type="button"
               onClick={props.closeModal}
@@ -39,68 +46,20 @@ const CarInfo = (props: CarInfoProps) => {
               />
             </button>
 
-            {/* Content */}
-            <div className="flex flex-1 flex-col gap-3 ">
-
-              <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg ">
-                <Image
-                  src="/hero.png"
-                  alt="Car Model"
-                  fill
-                  priority
-                  className="object-contain"
-                />
-              </div>
-              {/* Smaller Images */}
-              <div className="flex gap-3">
-                <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg ">
-                  <Image
-                    src="/hero.png"
-                    alt="Car Model"
-                    fill
-                    priority
-                    className="object-contain"
-                  />
-                </div>
-                <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg ">
-                  <Image
-                    src="/hero.png"
-                    alt="Car Model"
-                    fill
-                    priority
-                    className="object-contain"
-                  />
-                </div>
-                <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg ">
-                  <Image
-                    src="/hero.png"
-                    alt="Car Model"
-                    fill
-                    priority
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            </div>
+           
 
             {/* Car Description */}
             <div className="flex-1 flex flex-col gap-2">
               {/* Heading */}
-              <h2 className="font-semibold capitalize text-xl ">
+              <h2 className="font-semibold capitalize text-xl">
                 {props.car.make} {props.car.model}
               </h2>
               {/* Description */}
               <div className=" mt-3 flex flex-wrap gap-4 ">
-                {/* Extracting keys and values of the car object */}
-                { Object.entries(car).map(([key,value]) => (
-                  <div className="flex justify-between gap-5 ">
-
-                  </div>
-                ))}
+                {/* Rendering Car Description */}
+                {CarDescription}
               </div>
-
             </div>
-
           </Dialog.Panel>
         </Transition.Child>
       </div>
